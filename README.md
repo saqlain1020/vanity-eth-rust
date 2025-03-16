@@ -45,8 +45,8 @@ cargo run --release -- --prefix cafe --quantity 3
 # Find address ending with "dead"
 cargo run --release -- --suffix dead
 
-# Find address starting with "abc" and ending with "xyz"
-cargo run --release -- --prefix abc --suffix xyz
+# Find address starting with "abc" and ending with "000"
+cargo run --release -- --prefix abc --suffix 000
 
 # Use 8 threads
 cargo run --release -- --prefix dead --threads 8
@@ -82,3 +82,16 @@ Performance varies by:
 - rayon: For parallel processing
 - clap: For command-line argument parsing
 - indicatif: For progress indicators 
+
+## Benchmarked (Ryzen 8945HS 8 Cores 16 Threads)
+
+Hash Rate: ~400000 or ~400k keys/s
+| Prefix                    | Time (seconds)                                            |
+| --------------------------| --------------------------------------------------------- |
+| dead                      | 0.02 |
+| 00000                     | 5.35 |
+| abcd                      | 0.34 |
+| 000000                    | 40   |
+
+## Contributing
+Feel free to add your own benchmarked values.
